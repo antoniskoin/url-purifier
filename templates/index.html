@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>URL Purifier</title>
+    <link rel="icon" type="image/x-icon" href="/static/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="d-flex flex-column min-vh-100" style="background-color: #000000">
+
+<div class="container-fluid p-3" style="background-color: #EAEAEA">
+    <nav class="navbar navbar-light bg-light shadow rounded border border-2 border-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">URL Purifier</a>
+        </div>
+    </nav>
+</div>
+
+<div class="container-fluid d-flex justify-content-center mt-3">
+    <div class="card shadow border border-2 border-dark">
+        <div class="card-body text-center">
+            <img class="img-fluid img-thumbnail border-0" src="../static/logo.png" width="85"/>
+            <h4 class="mb-4">Paste the URL to be shortened.</h4>
+            <form action="/generate" method="POST">
+                <div class="input-group">
+                    <input type="text" class="form-control border-2 border-dark" placeholder="Enter URL here"
+                           aria-describedby="button_shorten" name="url" required>
+                    <button class="btn btn-dark border-2" type="submit" id="button_shorten">Shorten</button>
+                </div>
+            </form>
+            {% if data.message %}
+            <div class="alert alert-warning mt-2" role="alert">
+                {{ data.message }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid p-3 mt-auto" style="background-color: #EAEAEA">
+    <footer class="p-3 rounded shadow bg-light border border-2 border-dark">
+        URL Purifier &#169; 2023
+    </footer>
+</div>
+</body>
+</html>
